@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  
+  --color-obsidian: #111114;
+  --color-midnight: #351C2A;
+  --color-rose-muted: #C98F9A;
+  --color-ivory: #F7F0E7;
+  --color-gold: #D4B47A;
+  --color-charcoal: #29272B;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #111114;
+  color: #F7F0E7;
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Cinematic film grain overlay */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.032'/%3E%3C/svg%3E");
+}
+
+/* Parchment paper texture overlay */
+.paper-texture {
+  background-color: #F7F0E7;
+  background-image: 
+    radial-gradient(at 20% 30%, rgba(212, 180, 122, 0.14) 0px, transparent 55%),
+    radial-gradient(at 80% 75%, rgba(201, 143, 154, 0.12) 0px, transparent 50%),
+    radial-gradient(#d4b47a18 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 24px 24px;
+}
+
+/* Midnight burgundy card texture */
+.burgundy-texture {
+  background-color: #26131E;
+  background-image:
+    radial-gradient(at 15% 20%, rgba(212, 180, 122, 0.15) 0px, transparent 50%),
+    radial-gradient(at 85% 80%, rgba(201, 143, 154, 0.12) 0px, transparent 50%);
+}
+
+/* Velvet rose card texture */
+.rose-texture {
+  background-color: #38212B;
+  background-image:
+    radial-gradient(at 25% 20%, rgba(247, 240, 231, 0.08) 0px, transparent 55%),
+    radial-gradient(at 80% 80%, rgba(212, 180, 122, 0.16) 0px, transparent 50%);
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F7F0E7 0%, #D4B47A 45%, #C98F9A 85%, #F7F0E7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: goldShine 8s ease-in-out infinite;
+}
+
+@keyframes goldShine {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Subtle gold shimmer */
+@keyframes shimmer {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.animate-shimmer {
+  animation: shimmer 5s ease-in-out infinite;
+}
+
+/* Gentle float */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.8deg); }
+}
+
+.animate-float {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+/* Volumetric light beam breathe */
+@keyframes lightBreathe {
+  0%, 100% { opacity: 0.35; transform: scale(1) rotate(-12deg); }
+  50% { opacity: 0.6; transform: scale(1.06) rotate(-10deg); }
+}
+
+.animate-light-beam {
+  animation: lightBreathe 10s ease-in-out infinite;
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111114;
+}
+::-webkit-scrollbar-thumb {
+  background: #351C2A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4B47A;
+}
+
+/* Print styles for Greeting Card */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-greeting-card,
+  #printable-greeting-card * {
+    visibility: visible;
+  }
+  #printable-greeting-card {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none !important;
+  }
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

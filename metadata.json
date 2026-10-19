@@ -1,0 +1,6 @@
+{
+  "name": "SHE IS — A Cinematic Tribute to Women",
+  "description": "An immersive, cinematic tribute celebrating Vietnamese Women's Day (20/10). Every woman is a universe of her own.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
